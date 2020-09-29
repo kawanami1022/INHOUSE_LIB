@@ -1,4 +1,6 @@
 #pragma once
+#include <array>
+#include <type_traits>
 #include <SDL.h>
 
 enum class OUTLINE_ID
@@ -9,6 +11,10 @@ enum class OUTLINE_ID
 	Max,
 };
 
+OUTLINE_ID operator++(OUTLINE_ID& outlineID) { return outlineID=(OUTLINE_ID)(std::underlying_type<OUTLINE_ID>::type(outlineID) + 1); }
+OUTLINE_ID operator*(OUTLINE_ID outlineID) { return outlineID; }
+OUTLINE_ID begin(OUTLINE_ID outlineID) { return OUTLINE_ID::INNER; }
+OUTLINE_ID end(OUTLINE_ID outlineID) { return OUTLINE_ID::Max;}
 
 struct RGB;
 struct RGBA;
@@ -63,18 +69,24 @@ template <class T >
 struct CircleTmp
 {
 	// variables
-	Vector2Tmp<T> pos_;
-	T radious_;
+	Vector2Tmp<T> pos_;		// circle's center position
+	T radious_;				// circle's radious
 
-	RGBA fillColor_;
+	RGBA fillColor_;			// specify fillcolor
 	bool fillVisible_;		//bool FillFlag :true fill false outline
 
-	OUTLINE_ID outlineID_;
-	RGBA outlineColor_;
-	unsigned int outlineSize_;
-	bool outlineVisible_;	// out line flag
+	/// <summary>
+	/// specify outlineID
+	/// OUTLINE_ID::INNER		innerline
+	/// OUTLINE_ID::CENTER	centerline
+	/// OUTLINE_ID::OUTSIDE	outside
+	/// </summary>
+	OUTLINE_ID outlineID_;		
+	RGBA outlineColor_;			// specify outlineColor
+	unsigned int outlineSize_;		// specify outlinesize
+	bool outlineVisible_;			// true:draw outline  false:This flag doesn't draw outline
 	// operater
-
+	CircleTmp<T> operator=(const CircleTmp<T>&);
 	// Getter
 	
 
@@ -85,7 +97,18 @@ struct CircleTmp
 	CircleTmp(Vector2Tmp<T>,T,RGBA,bool, OUTLINE_ID, RGBA,unsigned int, bool);
 
 	// functions
-	void Draw(SDL_Renderer*);
+	void Draw(SDL_Renderer*);				// draw circle
+	void fillDraw(SDL_Renderer*);			// draw fillcircle
+	void outlineDraw(SDL_Renderer*);		// outline draw specified outlineID
+
+
+private:
+	void Init();
+	void outSideDraw(SDL_Renderer*, int);
+	void centerDraw(SDL_Renderer*, int);
+	void InnerDraw(SDL_Renderer*, int);
+	typedef void (CircleTmp<T>::*outlineDrawFunc)(SDL_Renderer*, int);
+	std::array<outlineDrawFunc,3> drawFunc;
 };
 
 #include "detail/Geometry2D.h"

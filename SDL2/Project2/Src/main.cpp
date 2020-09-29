@@ -80,7 +80,9 @@ bool init()
     //Initialize render color
     SDL_SetRenderDrawColor(gRenderer, 0xff, 0xff, 0xff, 0xff);
 
-    circle = Circle(Vector2(40, 53), 25, RGBA{0xff,0xff,0xff,0xff}, true);
+    circle = Circle(Vector2(40, 53), 25, RGBA{0xff,0x88,0xff,0xff}, true);
+    circle.outlineVisible_ = true;
+    circle.outlineSize_ = 5;
     return true;
 }
 

@@ -113,6 +113,22 @@ void RectTmp<T>::OutlineDraw(SDL_Renderer* renderer)
 }
 
 
+
+
+template<class T>
+inline CircleTmp<T> CircleTmp<T>::operator=(const CircleTmp<T>& circleTmp)
+{
+	this->pos_ = circleTmp.pos_;
+	this->radious_ = circleTmp.radious_;
+	this->fillColor_ = circleTmp.fillColor_;
+	this->fillVisible_ = circleTmp.fillVisible_;
+	this->outlineID_= circleTmp.outlineID_;
+	this->outlineColor_ = circleTmp.outlineColor_;
+	this->outlineSize_ = circleTmp.outlineSize_;
+	this->outlineVisible_ = circleTmp.outlineVisible_;
+	return (*this);
+}
+
 template<class T>
 CircleTmp<T>::CircleTmp() :pos_(Vector2(0, 0)),
 						radious_(0),
@@ -123,6 +139,7 @@ CircleTmp<T>::CircleTmp() :pos_(Vector2(0, 0)),
 						outlineSize_(0),
 						outlineVisible_(true)
 {
+	Init();
 }
 
 template<class T>
@@ -135,6 +152,7 @@ inline CircleTmp<T>::CircleTmp(Vector2Tmp<T> pos, T radious) :pos_(Vector2(0, 0)
 											outlineSize_(1),
 											outlineVisible_(true)
 {
+	Init();
 }
 
 template<class T>
@@ -148,6 +166,7 @@ inline CircleTmp<T>::CircleTmp(Vector2Tmp<T> pos, T radious, RGBA fillcolor, boo
 														outlineSize_(1),
 														outlineVisible_(true)
 {
+	Init();
 }
 
 template<class T>
@@ -162,13 +181,75 @@ inline CircleTmp<T>::CircleTmp(Vector2Tmp<T> pos, T radious,RGBA fillcolor,bool 
 							outlineSize_(outlineSize),
 							outlineVisible_(outlineVisible)
 {
-	
+	Init();
+}
+
+template<class T>
+inline void CircleTmp<T>::Init()
+{
+	drawFunc[0] = &CircleTmp<T>::outSideDraw;
+	drawFunc[1] = &CircleTmp<T>::centerDraw;
+	drawFunc[2] = &CircleTmp<T>::InnerDraw;
 }
 
 template<class T>
 inline void CircleTmp<T>::Draw(SDL_Renderer* renderer)
 {
-	aacircleColor(renderer, pos_.x, pos_.y, radious_, 0xffffffff);
+
+	if (fillVisible_) { fillDraw(renderer); }
+
+	if (outlineVisible_){outlineDraw(renderer);}
+}
+
+template<class T>
+inline void CircleTmp<T>::fillDraw(SDL_Renderer* renderer)
+{
+	filledCircleRGBA(renderer, STCI(pos_.x), STCI(pos_.y), STCI(radious_), fillColor_.r, fillColor_.g, fillColor_.b, fillColor_.a);
+	aacircleRGBA(renderer, STCI(pos_.x), STCI(pos_.y), STCI(radious_), fillColor_.r, fillColor_.g, fillColor_.b, fillColor_.a);
+
+	for(unsigned int idx=0;idx<3;idx++)
+		aacircleRGBA(renderer, STCI(pos_.x), STCI(pos_.y), STCI(radious_)+1, fillColor_.r, fillColor_.g, fillColor_.b, fillColor_.a);
+}
+
+
+// outline draw specified outlineID
+// 
+template<class T>
+inline void CircleTmp<T>::outlineDraw(SDL_Renderer* renderer)
+{
+	for (auto ID : OUTLINE_ID())
+	{
+		auto func = this->drawFunc[STCI(ID)];
+		if (outlineID_ == ID)
+		for (unsigned int dst = 0; dst < outlineSize_; dst++)
+		{
+			for (unsigned int idx = 0; idx < 2; idx++)
+			{
+				(this->*func)(renderer, dst);
+			}
+		}
+	}
+}
+
+// outline draw outside
+template<class T>
+inline void CircleTmp<T>::outSideDraw(SDL_Renderer* renderer, int dst)
+{
+	aacircleRGBA(renderer, STCI(pos_.x), STCI(pos_.y), STCI(radious_) + dst + 1, outlineColor_.r, outlineColor_.g, outlineColor_.b, outlineColor_.a);
+}
+
+template<class T>
+inline void CircleTmp<T>::centerDraw(SDL_Renderer* renderer, int dst)
+{
+	aacircleRGBA(renderer, STCI(pos_.x), STCI(pos_.y),
+		STCI(radious_) - STCI(outlineSize_ / 2) + dst, STCI(outlineColor_.r),
+		outlineColor_.g, outlineColor_.b, outlineColor_.a);
+}
+
+template<class T>
+inline void CircleTmp<T>::InnerDraw(SDL_Renderer* renderer, int dst)
+{
+	aacircleRGBA(renderer, STCI(pos_.x), STCI(pos_.y), STCI(radious_) - dst + 1, outlineColor_.r, outlineColor_.g, outlineColor_.b, outlineColor_.a);
 }
 
 
