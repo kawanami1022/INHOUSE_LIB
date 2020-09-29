@@ -26,8 +26,7 @@ SDL_Renderer* gRenderer = NULL;
 
 const Uint8* state;
 
-Rect rect1 = Rect(Vector2(0, 0), 100, 100, RGBA{0xff,0xff,0x00,0xff});
-Rect rect2 = Rect(Vector2(400, 300), 100, 100, RGBA{0xff,0x00,0x00,0xff});
+Circle circle;
 
 int main(int argc, char* argv[]) {
     //Start up SDL and create window
@@ -81,7 +80,7 @@ bool init()
     //Initialize render color
     SDL_SetRenderDrawColor(gRenderer, 0xff, 0xff, 0xff, 0xff);
 
-
+    circle = Circle(Vector2(40, 53), 25, RGBA{0xff,0xff,0xff,0xff}, true);
     return true;
 }
 
@@ -89,26 +88,17 @@ void Input()
 {
     state = SDL_GetKeyboardState(NULL);
     if (state[SDL_SCANCODE_UP]) {
-        rect1.pos_.y--;
     }
     if (state[SDL_SCANCODE_LEFT]) {
-        rect1.pos_.x--;
     }
     if (state[SDL_SCANCODE_DOWN]) {
-        rect1.pos_.y++;
     }
     if (state[SDL_SCANCODE_RIGHT]) {
-        rect1.pos_.x++;
     }
 }
 
 void Update()
 {
-    rect1.fillFlag_ = false;
-    if (Collision2D::IsHitAABB(rect1, rect2))
-    {
-        rect1.fillFlag_ = true;
-    }
 }
 
 void Draw()
@@ -118,9 +108,7 @@ void Draw()
     SDL_RenderClear(gRenderer);
 
     // 
-    rect2.FillDraw(gRenderer);
-    rect1.Draw(gRenderer);
-
+    circle.Draw(gRenderer);
     //UpdateScreen
     SDL_RenderPresent(gRenderer);
 }

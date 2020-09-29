@@ -1,6 +1,14 @@
 #pragma once
 #include <SDL.h>
 
+enum class OUTLINE_ID
+{
+	INNER,		// inside line
+	CENTER,		// center line
+	OUTSIDE,		// outside line
+	Max,
+};
+
 
 struct RGB;
 struct RGBA;
@@ -16,11 +24,15 @@ struct RectTmp
 	T hight_;
 	RGBA color_;
 	bool fillFlag_;		//bool FillFlag :true fill false outline
-
+	
+	// constractor
 	RectTmp();
 	RectTmp(Vector2Tmp<T>,T,T);
 	RectTmp(Vector2Tmp<T>,T,T,RGBA);
 	RectTmp(Vector2Tmp<T>, T, T, RGBA,bool);
+
+	// operater
+	RectTmp& operator=(const RectTmp&);
 
 	// Getter
 	Vector2Tmp<T> Position2()const
@@ -50,8 +62,30 @@ struct RectTmp
 template <class T >
 struct CircleTmp
 {
-	Vector2Tmp<T> vec2;
-	T radious;
+	// variables
+	Vector2Tmp<T> pos_;
+	T radious_;
+
+	RGBA fillColor_;
+	bool fillVisible_;		//bool FillFlag :true fill false outline
+
+	OUTLINE_ID outlineID_;
+	RGBA outlineColor_;
+	unsigned int outlineSize_;
+	bool outlineVisible_;	// out line flag
+	// operater
+
+	// Getter
+	
+
+	// constractor
+	CircleTmp();
+	CircleTmp(Vector2Tmp<T>,T);
+	CircleTmp(Vector2Tmp<T>,T,RGBA,bool);
+	CircleTmp(Vector2Tmp<T>,T,RGBA,bool, OUTLINE_ID, RGBA,unsigned int, bool);
+
+	// functions
+	void Draw(SDL_Renderer*);
 };
 
 #include "detail/Geometry2D.h"
@@ -68,5 +102,4 @@ using CircleS = CircleTmp<short>;
 using CircleL = CircleTmp<long>;
 using CircleF = CircleTmp<float>;
 using CircleD = CircleTmp<double>;
-
 

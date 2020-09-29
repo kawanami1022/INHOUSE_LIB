@@ -164,6 +164,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Lib\SDL_gfx\SDL2_framerate.c" />
+    <ClCompile Include="Src\Lib\SDL_gfx\SDL2_gfxPrimitives.c" />
+    <ClCompile Include="Src\Lib\SDL_gfx\SDL2_imageFilter.c" />
+    <ClCompile Include="Src\Lib\SDL_gfx\SDL2_rotozoom.c" />
     <ClCompile Include="Src\main.cpp" />
     <!-- <ClCompile Include="Src\Collision2D\Collision2D.cpp" /> -->
   </ItemGroup>
@@ -178,6 +182,11 @@
     <ClInclude Include="Src\Lib\Constraint\constraint.h" />
     <ClInclude Include="Src\Lib\Geometry2D\detail\Geometry2D.h" />
     <ClInclude Include="Src\Lib\Geometry2D\Geometry2D.h" />
+    <ClInclude Include="Src\Lib\SDL_gfx\SDL2_framerate.h" />
+    <ClInclude Include="Src\Lib\SDL_gfx\SDL2_gfxPrimitives.h" />
+    <ClInclude Include="Src\Lib\SDL_gfx\SDL2_gfxPrimitives_font.h" />
+    <ClInclude Include="Src\Lib\SDL_gfx\SDL2_imageFilter.h" />
+    <ClInclude Include="Src\Lib\SDL_gfx\SDL2_rotozoom.h" />
     <ClInclude Include="Src\Lib\Vector2\detail\Vector2.h" />
     <ClInclude Include="Src\Lib\Vector2\Vector2.h" />
     <ClInclude Include="Src\Vector2\detail\Vector2.h" />

@@ -15,12 +15,12 @@ public:
 	Vector2Tmp();
 	Vector2Tmp(T x,T y);
 
-	T calcAngle(T x, T y);		// 角度を求める
+	T calcAngle(T x, T y);			// 角度を求める
 	T calcSin(T angle);				// y軸のベクトルを求める
 	T calcCos(T angle);				// x軸のベクトルを求める
 	T calcTwoPtDisComp(T*, T*);		// 2つのポイントの間の距離の合成
-	T calcVecX(T dis, T angle);	// 角度からx軸y軸のそれぞれの速度を計算する
-	T calcVecY(T dis, T angle);	// 角度からx軸y軸のそれぞれの速度を計算する
+	T calcVecX(T dis, T angle);		// 角度からx軸y軸のそれぞれの速度を計算する
+	T calcVecY(T dis, T angle);		// 角度からx軸y軸のそれぞれの速度を計算する
 	T x, y;								// 座標格納用変数
 	Vector2Tmp& operator=(const Vector2Tmp& vec2);
 	Vector2Tmp& operator+=(Vector2Tmp& vec2);
