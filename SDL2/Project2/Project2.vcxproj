@@ -95,7 +95,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SDL2)\lib\x64;$(SDL2_image)\lib\x64;$(SDL2_ttf)\lib\x64;$($(SDL2_mixer)\lib\64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SDL2)\lib\x64;$(SDL2_image)\lib\x64;$(SDL2_ttf)\lib\x64;$(SDL2_mixer)\lib\x64</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SDL2)\lib\x86\*.dll" "$(OutDir)" /i /s /y</Command>
@@ -117,7 +117,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SDL2)\lib\x64;$(SDL2_image)\lib\x64;$(SDL2_ttf)\lib\x64;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SDL2)\lib\x64;$(SDL2_image)\lib\x64;$(SDL2_ttf)\lib\x64;$(SDL2_mixer)\lib\x64</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SDL2)\lib\x86\*.dll" "$(OutDir)" /i /s /y</Command>
@@ -135,7 +135,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SDL2)\lib\x64;$(SDL2_image)\lib\x64;$(SDL2_ttf)\lib\x64;$($(SDL2_mixer)\lib\64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SDL2)\lib\x64;$(SDL2_image)\lib\x64;$(SDL2_ttf)\lib\x64;$(SDL2_mixer)\lib\x64</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SDL2)\lib\x86\*.dll" "$(OutDir)" /i /s /y</Command>
@@ -157,22 +157,29 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SDL2)\lib\x64;$(SDL2_image)\lib\x64;$(SDL2_ttf)\lib\x64;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SDL2)\lib\x64;$(SDL2_image)\lib\x64;$(SDL2_ttf)\lib\x64;$(SDL2_mixer)\lib\x64</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SDL2)\lib\x86\*.dll" "$(OutDir)" /i /s /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Application.cpp" />
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_framerate.c" />
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_gfxPrimitives.c" />
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_imageFilter.c" />
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_rotozoom.c" />
     <ClCompile Include="Src\main.cpp" />
+    <ClCompile Include="Src\Scene\BaseScene.cpp" />
+    <ClCompile Include="Src\Scene\GameScene.cpp" />
+    <ClCompile Include="Src\Scene\TitleScene.cpp" />
+    <ClCompile Include="Src\System\SceneManager.cpp" />
     <!-- <ClCompile Include="Src\Collision2D\Collision2D.cpp" /> -->
   </ItemGroup>
   <ItemGroup>
     <!-- <ClInclude Include="Src\Collision2D\Collision2D.h" /> -->
+    <ClInclude Include="Src\Application.h" />
+    <ClInclude Include="Src\Constant.h" />
     <ClInclude Include="Src\Lib\Collision2D\detail\Collision2D.h" />
     <ClInclude Include="Src\Lib\Constraint\cast.h" />
     <ClInclude Include="Src\Lib\Color\Color.h" />
@@ -189,6 +196,10 @@
     <ClInclude Include="Src\Lib\SDL_gfx\SDL2_rotozoom.h" />
     <ClInclude Include="Src\Lib\Vector2\detail\Vector2.h" />
     <ClInclude Include="Src\Lib\Vector2\Vector2.h" />
+    <ClInclude Include="Src\Scene\BaseScene.h" />
+    <ClInclude Include="Src\Scene\GameScene.h" />
+    <ClInclude Include="Src\Scene\TitleScene.h" />
+    <ClInclude Include="Src\System\SceneManager.h" />
     <ClInclude Include="Src\Vector2\detail\Vector2.h" />
     <ClInclude Include="Src\Vector2\Vector2.h" />
   </ItemGroup>

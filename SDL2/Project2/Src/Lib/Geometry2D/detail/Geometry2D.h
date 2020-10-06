@@ -253,3 +253,66 @@ inline void CircleTmp<T>::InnerDraw(SDL_Renderer* renderer, int dst)
 }
 
 
+template<class T>
+inline CapsuleTmp<T>::CapsuleTmp() 
+	:pos_(Vector2(0, 0)), height_(0), radious_(0), fillColor_(RGBA{ 0xff,0xff,0xff,0xff }), fillVisible_(false), 
+	outlineID_(OUTLINE_ID::CENTER), outlineColor_(RGBA{0xff,0xff,0xff,0xff}),outlineSize_(0),outlineVisible_(false)
+{
+}
+
+template<class T>
+inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious)
+	:pos_(Vector2(0, 0)), height_(0), radious_(0), fillColor_(RGBA{ 0xff,0xff,0xff,0xff }), fillVisible_(false),
+	outlineID_(OUTLINE_ID::CENTER), outlineColor_(RGBA{ 0xff,0xff,0xff,0xff }), outlineSize_(0), outlineVisible_(false)
+{
+}
+
+template<class T>
+inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor)
+	:pos_(Vector2(0, 0)), height_(0), radious_(0), fillColor_(RGBA{ 0xff,0xff,0xff,0xff }), fillVisible_(false),
+	outlineID_(OUTLINE_ID::CENTER), outlineColor_(RGBA{ 0xff,0xff,0xff,0xff }), outlineSize_(0), outlineVisible_(false)
+{
+}
+
+template<class T>
+inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor, bool fillVisible,
+	OUTLINE_ID outlineID, RGBA outlineColor, unsigned int outlineSize, bool outlineVisible)
+	: pos_(pos), height_(height), radious_(radious), fillColor_(fillColor), fillVisible_(fillVisible),
+	outlineID_(outlineID), outlineColor_(outlineColor), outlineSize_(outlineSize), outlineVisible_(outlineVisible)
+{
+}
+
+template<class T>
+inline void CapsuleTmp<T>::Draw(SDL_Renderer* renderer)
+{
+}
+
+template<class T>
+inline void CapsuleTmp<T>::fillDraw(SDL_Renderer* renderer)
+{
+}
+
+template<class T>
+inline void CapsuleTmp<T>::outlineDraw(SDL_Renderer* renderer)
+{
+}
+
+template<class T>
+inline void CapsuleTmp<T>::Init()
+{
+}
+
+template<class T>
+inline void CapsuleTmp<T>::outSideDraw(SDL_Renderer* renderer, int)
+{
+}
+
+template<class T>
+inline void CapsuleTmp<T>::centerDraw(SDL_Renderer* renderer, int)
+{
+}
+
+template<class T>
+inline void CapsuleTmp<T>::InnerDraw(SDL_Renderer* renderer, int)
+{
+}

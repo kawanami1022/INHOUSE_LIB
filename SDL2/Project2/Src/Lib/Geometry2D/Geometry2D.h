@@ -93,11 +93,12 @@ struct CircleTmp
 	// constractor
 	CircleTmp();
 	CircleTmp(Vector2Tmp<T>,T);
-	CircleTmp(Vector2Tmp<T>,T,RGBA,bool);
-	CircleTmp(Vector2Tmp<T>,T,RGBA,bool, OUTLINE_ID, RGBA,unsigned int, bool);
+	CircleTmp(Vector2Tmp<T> pos, T radious, RGBA fillcolor, bool fillVisible);
+	CircleTmp(Vector2Tmp<T> pos, T radious, RGBA fillcolor, bool fillVisible,
+		OUTLINE_ID outlineID, RGBA outlineColor, unsigned int outlineSize, bool outlineVisible);
 
 	// functions
-	void Draw(SDL_Renderer*);				// draw circle
+	void Draw(SDL_Renderer*);				// draw circle	outlineVisible_:true outline draw	fillVisible_:true draw fillcircle
 	void fillDraw(SDL_Renderer*);			// draw fillcircle
 	void outlineDraw(SDL_Renderer*);		// outline draw specified outlineID
 
@@ -109,6 +110,49 @@ private:
 	void InnerDraw(SDL_Renderer*, int);
 	typedef void (CircleTmp<T>::*outlineDrawFunc)(SDL_Renderer*, int);
 	std::array<outlineDrawFunc,3> drawFunc;
+};
+
+template<class T>
+struct CapsuleTmp
+{
+	Vector2Tmp<T> pos_;	// capsule's center position
+	T height_;			// capsule's height
+	T radious_;			// capsule's radious
+
+	RGBA fillColor_;			// specify fillcolor
+	bool fillVisible_;		//bool FillFlag :true fill false outline
+
+	/// <summary>
+	/// specify outlineID
+	/// OUTLINE_ID::INNER		innerline
+	/// OUTLINE_ID::CENTER	centerline
+	/// OUTLINE_ID::OUTSIDE	outside
+	/// </summary>
+	OUTLINE_ID outlineID_;
+	RGBA outlineColor_;			// specify outlineColor
+	unsigned int outlineSize_;		// specify outlinesize
+	bool outlineVisible_;			// true:draw outline  false:This flag doesn't draw outline
+
+	// constractor
+	CapsuleTmp();
+	CapsuleTmp(Vector2Tmp<T> pos, T height, T radious);
+	CapsuleTmp(Vector2Tmp<T> pos, T height, T radious,RGBA fillColor);
+	CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor,
+		bool fillVisible,OUTLINE_ID outlineID,RGBA outlineColor,unsigned int outlineSize,bool outlineVisible);
+
+	// functions
+	void Draw(SDL_Renderer*);				// draw circle	outlineVisible_:true outline draw	fillVisible_:true draw fillcircle
+	void fillDraw(SDL_Renderer*);			// draw fillcircle
+	void outlineDraw(SDL_Renderer*);		// outline draw specified outlineI
+
+
+private:
+	void Init();
+	void outSideDraw(SDL_Renderer*, int);
+	void centerDraw(SDL_Renderer*, int);
+	void InnerDraw(SDL_Renderer*, int);
+	typedef void (CircleTmp<T>::* outlineDrawFunc)(SDL_Renderer*, int);
+	std::array<outlineDrawFunc, 3> drawFunc;
 };
 
 #include "detail/Geometry2D.h"
