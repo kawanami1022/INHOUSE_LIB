@@ -4,7 +4,7 @@
 template<class T>
 struct Matrix3x3Tmp
 {
-	T index[3][3];		// [column][row]
+	T index[3][3];		// [row][column]
 };
 
 //

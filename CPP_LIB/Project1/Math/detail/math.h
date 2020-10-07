@@ -1,4 +1,5 @@
 #pragma once
+#include <cstring>
 #include "../math.h"
 
 
@@ -6,20 +7,14 @@ template<class T>
 Matrix3x3Tmp<T> operator* (Matrix3x3Tmp<T> mat1, Matrix3x3Tmp<T> mat2)
 {
 	Matrix3x3Tmp<T> tmp;
+	// Zero clear.
+	std::memset(&tmp, 0, sizeof(tmp));
 
-	tmp.index[0][0] = mat1.index[0][0] * mat2.index[0][0] +
-					mat1.index[1][0] * mat2.index[0][1] +
-					mat1.index[2][0] * mat2.index[0][2];
-	tmp.index[1][0] = mat1.index[0][0] * mat2.index[0][0];
-	tmp.index[2][0] = mat1.index[0][0] * mat2.index[0][0];
+	for (int row = 0; row < 3; row++)
+		for (int column = 0; column < 3; column++)
+			for (int idx = 0; idx < 3; idx++)
+				tmp.index[row][column] += mat1.index[row][idx] * mat2.index[idx][column];
 
-	tmp.index[0][1] = mat1.index[0][0] * mat2.index[0][0];
-	tmp.index[1][1] = mat1.index[0][0] * mat2.index[0][0];
-	tmp.index[2][1] = mat1.index[0][0] * mat2.index[0][0];
-
-	tmp.index[0][2] = mat1.index[0][0] * mat2.index[0][0];
-	tmp.index[1][2] = mat1.index[0][0] * mat2.index[0][0];
-	tmp.index[2][2] = mat1.index[0][0] * mat2.index[0][0];
 	return tmp;
 }
 
