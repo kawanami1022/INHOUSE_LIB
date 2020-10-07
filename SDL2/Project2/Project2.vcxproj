@@ -189,6 +189,8 @@
     <ClInclude Include="Src\Lib\Constraint\constraint.h" />
     <ClInclude Include="Src\Lib\Geometry2D\detail\Geometry2D.h" />
     <ClInclude Include="Src\Lib\Geometry2D\Geometry2D.h" />
+    <ClInclude Include="Src\Lib\Math\detail\math.h" />
+    <ClInclude Include="Src\Lib\Math\math.h" />
     <ClInclude Include="Src\Lib\SDL_gfx\SDL2_framerate.h" />
     <ClInclude Include="Src\Lib\SDL_gfx\SDL2_gfxPrimitives.h" />
     <ClInclude Include="Src\Lib\SDL_gfx\SDL2_gfxPrimitives_font.h" />

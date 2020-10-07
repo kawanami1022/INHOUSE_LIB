@@ -143,7 +143,7 @@ struct CapsuleTmp
 	// functions
 	void Draw(SDL_Renderer*);				// draw circle	outlineVisible_:true outline draw	fillVisible_:true draw fillcircle
 	void fillDraw(SDL_Renderer*);			// draw fillcircle
-	void outlineDraw(SDL_Renderer*);		// outline draw specified outlineI
+	void outlineDraw(SDL_Renderer*);		// outline draw specified outlineID
 
 
 private:
@@ -151,7 +151,7 @@ private:
 	void outSideDraw(SDL_Renderer*, int);
 	void centerDraw(SDL_Renderer*, int);
 	void InnerDraw(SDL_Renderer*, int);
-	typedef void (CircleTmp<T>::* outlineDrawFunc)(SDL_Renderer*, int);
+	typedef void (CapsuleTmp<T>::* outlineDrawFunc)(SDL_Renderer*, int);
 	std::array<outlineDrawFunc, 3> drawFunc;
 };
 

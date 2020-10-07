@@ -145,10 +145,20 @@
     <ClCompile Include="File\TMX_File.cpp" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< develop
     <ClInclude Include="File\detail\File.h" />
     <ClInclude Include="File\File.h" />
     <ClInclude Include="strmanip\strmanip.h" />
     <ClInclude Include="File\TMX_File.h" />
+=======
+    <ClInclude Include="FileControl\detail\FileControl.h" />
+    <ClInclude Include="FileControl\FileControl.h" />
+    <ClInclude Include="func.h" />
+    <ClInclude Include="Functional.h" />
+    <ClInclude Include="Math\detail\math.h" />
+    <ClInclude Include="Math\math.h" />
+    <ClInclude Include="Vector2D\Vector2.h" />
+>>>>>>> added matrix01
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
