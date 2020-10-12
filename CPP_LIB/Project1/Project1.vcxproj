@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="File\File.cpp" />
     <ClCompile Include="main.cpp" />
+<<<<<<< develop
     <ClCompile Include="strmanip\strmanip.cpp" />
     <ClCompile Include="File\TMX_File.cpp" />
   </ItemGroup>
@@ -151,14 +152,25 @@
     <ClInclude Include="strmanip\strmanip.h" />
     <ClInclude Include="File\TMX_File.h" />
 =======
+=======
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Constraint\cast.h" />
+    <ClInclude Include="Constraint\constraint.h" />
+>>>>>>> added matrix03
     <ClInclude Include="FileControl\detail\FileControl.h" />
     <ClInclude Include="FileControl\FileControl.h" />
     <ClInclude Include="func.h" />
     <ClInclude Include="Functional.h" />
     <ClInclude Include="Math\detail\math.h" />
     <ClInclude Include="Math\math.h" />
+<<<<<<< develop
     <ClInclude Include="Vector2D\Vector2.h" />
 >>>>>>> added matrix01
+=======
+    <ClInclude Include="Vector2\detail\Vector2.h" />
+    <ClInclude Include="Vector2\Vector2.h" />
+>>>>>>> added matrix03
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -289,6 +289,16 @@ inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fi
 template<class T>
 inline void CapsuleTmp<T>::Draw(SDL_Renderer* renderer)
 {
+
+	//aapolygonRGBA(SDL_Surface * dst,
+	//	const Sint16 * vx,
+	//	const Sint16 * vy,
+	//	int 	n,
+	//	Uint8 	r,
+	//	Uint8 	g,
+	//	Uint8 	b,
+	//	Uint8 	a
+	//)
 	if (fillVisible_) { fillDraw(renderer); }
 
 	if (outlineVisible_) { outlineDraw(renderer); }
@@ -297,6 +307,7 @@ inline void CapsuleTmp<T>::Draw(SDL_Renderer* renderer)
 template<class T>
 inline void CapsuleTmp<T>::fillDraw(SDL_Renderer* renderer)
 {
+
 }
 
 template<class T>
