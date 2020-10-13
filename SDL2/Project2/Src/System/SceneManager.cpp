@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include "../Application.h"
 #include "../Scene/TitleScene.h"
 
 SceneManager::SceneManager()
@@ -12,20 +13,20 @@ void SceneManager::ChangeScene(std::unique_ptr<BaseScene> scene)
 	playingScene = std::move(scene);
 }
 
-void SceneManager::ProcessInput()
+void SceneManager::ProcessInput(Application& application)
 {
 	for (const auto& scene : scenes_)
 		scene->ProcessInput();
 }
 
-void SceneManager::Update(const float& deltaTime)
+void SceneManager::Update(const float& deltaTime, Application& application)
 {
 	for (const auto& scene : scenes_)
 		scene->Update(deltaTime);
 }
 
-void SceneManager::Render(SDL_Renderer* gRenderer)
+void SceneManager::Render(Application& application)
 {
 	for (const auto& scene : scenes_)
-		scene->Render(gRenderer);
+		scene->Render(application.gRenderer);
 }

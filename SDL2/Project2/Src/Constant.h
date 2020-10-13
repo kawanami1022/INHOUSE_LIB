@@ -13,7 +13,7 @@ namespace
     //The window we'll be rendering to
     SDL_Window* gWindow = NULL;
 
-    SDL_Renderer* gRenderer = NULL;
+    
 
     SDL_Event event;
 }

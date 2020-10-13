@@ -11,10 +11,10 @@ enum class OUTLINE_ID
 	Max,
 };
 
-OUTLINE_ID operator++(OUTLINE_ID& outlineID) { return outlineID=(OUTLINE_ID)(std::underlying_type<OUTLINE_ID>::type(outlineID) + 1); }
-OUTLINE_ID operator*(OUTLINE_ID outlineID) { return outlineID; }
-OUTLINE_ID begin(OUTLINE_ID outlineID) { return OUTLINE_ID::INNER; }
-OUTLINE_ID end(OUTLINE_ID outlineID) { return OUTLINE_ID::Max;}
+//OUTLINE_ID operator++(OUTLINE_ID& outlineID) { return outlineID=(OUTLINE_ID)(std::underlying_type<OUTLINE_ID>::type(outlineID) + 1); }
+//OUTLINE_ID operator*(OUTLINE_ID outlineID) { return outlineID; }
+//OUTLINE_ID begin(OUTLINE_ID outlineID) { return OUTLINE_ID::INNER; }
+//OUTLINE_ID end(OUTLINE_ID outlineID) { return OUTLINE_ID::Max;}
 
 struct RGB;
 struct RGBA;
@@ -113,8 +113,9 @@ private:
 };
 
 template<class T>
-struct CapsuleTmp
+class CapsuleTmp
 {
+public:
 	Vector2Tmp<T> pos_;	// capsule's center position
 	T height_;			// capsule's height
 	T radious_;			// capsule's radious
@@ -132,13 +133,13 @@ struct CapsuleTmp
 	RGBA outlineColor_;			// specify outlineColor
 	unsigned int outlineSize_;		// specify outlinesize
 	bool outlineVisible_;			// true:draw outline  false:This flag doesn't draw outline
-
+	SDL_Surface* surface_;		// 
 	// constractor
 	CapsuleTmp();
-	CapsuleTmp(Vector2Tmp<T> pos, T height, T radious);
-	CapsuleTmp(Vector2Tmp<T> pos, T height, T radious,RGBA fillColor);
-	CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor,
-		bool fillVisible,OUTLINE_ID outlineID,RGBA outlineColor,unsigned int outlineSize,bool outlineVisible);
+	//CapsuleTmp(Vector2Tmp<T> pos, T height, T radious);
+	//CapsuleTmp(Vector2Tmp<T> pos, T height, T radious,RGBA fillColor);
+	//CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor,
+	//	bool fillVisible,OUTLINE_ID outlineID,RGBA outlineColor,unsigned int outlineSize,bool outlineVisible);
 
 	// functions
 	void Draw(SDL_Renderer*);				// draw circle	outlineVisible_:true outline draw	fillVisible_:true draw fillcircle
@@ -151,6 +152,7 @@ private:
 	void outSideDraw(SDL_Renderer*, int);
 	void centerDraw(SDL_Renderer*, int);
 	void InnerDraw(SDL_Renderer*, int);
+
 	typedef void (CapsuleTmp<T>::* outlineDrawFunc)(SDL_Renderer*, int);
 	std::array<outlineDrawFunc, 3> drawFunc;
 };

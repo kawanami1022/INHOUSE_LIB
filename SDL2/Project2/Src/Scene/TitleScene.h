@@ -1,6 +1,11 @@
 #pragma once
 #include <SDL.h>
 #include "BaseScene.h"
+#include "../Lib/Geometry2D/Geometry2D.h"
+
+//template<class T>
+//class CapsuleTmp;
+
 class TitleScene :
     public BaseScene
 {
@@ -10,5 +15,11 @@ public:
     void ProcessInput() override;
     void Update(const float& deltaTime) override;
     void Render(SDL_Renderer* renderer) override;
+
+    // declare variables
+
+    CapsuleTmp<float> capsule;
+
+
 };
 

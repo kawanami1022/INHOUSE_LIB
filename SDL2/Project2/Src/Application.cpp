@@ -96,9 +96,9 @@ void Application::Run()
                 break;
             }
         }
-        sceneMng_->ProcessInput();
-        sceneMng_->Update(deltaTime);
-        sceneMng_->Render(gRenderer);
+        sceneMng_->ProcessInput((*this));
+        sceneMng_->Update(deltaTime, (*this));
+        sceneMng_->Render((*this));
 
 
     }

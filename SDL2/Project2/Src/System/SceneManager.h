@@ -4,6 +4,8 @@
 #include <SDL.h>
 #include "../Scene/BaseScene.h"
 
+class Application;
+
 class SceneManager
 {
 private:
@@ -15,9 +17,9 @@ private:
 
 	void ChangeScene(std::unique_ptr<BaseScene>);
 
-	void ProcessInput();
-	void Update(const float& deltaTime);
-	void Render(SDL_Renderer*);
+	void ProcessInput(Application& application);
+	void Update(const float& deltaTime, Application& application);
+	void Render( Application& application);
 public:
 	SceneManager();
 	~SceneManager() = default;

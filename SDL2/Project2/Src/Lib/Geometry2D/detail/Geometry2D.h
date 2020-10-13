@@ -254,37 +254,37 @@ inline void CircleTmp<T>::InnerDraw(SDL_Renderer* renderer, int dst)
 
 
 template<class T>
-inline CapsuleTmp<T>::CapsuleTmp() 
-	:pos_(Vector2(0, 0)), height_(0), radious_(0), fillColor_(RGBA{ 0xff,0xff,0xff,0xff }), fillVisible_(false), 
+inline CapsuleTmp<T>::CapsuleTmp()
+	:pos_(Vector2Tmp<T>(STCT(0.f), STCT(0.f))), height_(STCT(0.f)), radious_(STCT(0.f)), fillColor_(RGBA{ 0xff,0xff,0xff,0xff }), fillVisible_(false),
 	outlineID_(OUTLINE_ID::CENTER), outlineColor_(RGBA{0xff,0xff,0xff,0xff}),outlineSize_(0),outlineVisible_(false)
 {
 	Init();
 }
 
-template<class T>
-inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious)
-	:pos_(Vector2(0, 0)), height_(0), radious_(0), fillColor_(RGBA{ 0xff,0xff,0xff,0xff }), fillVisible_(false),
-	outlineID_(OUTLINE_ID::CENTER), outlineColor_(RGBA{ 0xff,0xff,0xff,0xff }), outlineSize_(0), outlineVisible_(false)
-{
-	Init();
-}
-
-template<class T>
-inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor)
-	:pos_(Vector2(0, 0)), height_(0), radious_(0), fillColor_(RGBA{ 0xff,0xff,0xff,0xff }), fillVisible_(false),
-	outlineID_(OUTLINE_ID::CENTER), outlineColor_(RGBA{ 0xff,0xff,0xff,0xff }), outlineSize_(0), outlineVisible_(false)
-{
-	Init();
-}
-
-template<class T>
-inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor, bool fillVisible,
-	OUTLINE_ID outlineID, RGBA outlineColor, unsigned int outlineSize, bool outlineVisible)
-	: pos_(pos), height_(height), radious_(radious), fillColor_(fillColor), fillVisible_(fillVisible),
-	outlineID_(outlineID), outlineColor_(outlineColor), outlineSize_(outlineSize), outlineVisible_(outlineVisible)
-{
-	Init();
-}
+//template<class T>
+//inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious)
+//	:pos_(Vector2(0, 0)), height_(0), radious_(0), fillColor_(RGBA{ 0xff,0xff,0xff,0xff }), fillVisible_(false),
+//	outlineID_(OUTLINE_ID::CENTER), outlineColor_(RGBA{ 0xff,0xff,0xff,0xff }), outlineSize_(0), outlineVisible_(false)
+//{
+//	//Init();
+//}
+//
+//template<class T>
+//inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor)
+//	:pos_(Vector2(0, 0)), height_(0), radious_(0), fillColor_(RGBA{ 0xff,0xff,0xff,0xff }), fillVisible_(false),
+//	outlineID_(OUTLINE_ID::CENTER), outlineColor_(RGBA{ 0xff,0xff,0xff,0xff }), outlineSize_(0), outlineVisible_(false)
+//{
+//	//Init();
+//}
+//
+//template<class T>
+//inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor, bool fillVisible,
+//	OUTLINE_ID outlineID, RGBA outlineColor, unsigned int outlineSize, bool outlineVisible)
+//	: pos_(pos), height_(height), radious_(radious), fillColor_(fillColor), fillVisible_(fillVisible),
+//	outlineID_(outlineID), outlineColor_(outlineColor), outlineSize_(outlineSize), outlineVisible_(outlineVisible)
+//{
+//	//Init();
+//}
 
 template<class T>
 inline void CapsuleTmp<T>::Draw(SDL_Renderer* renderer)
@@ -299,6 +299,18 @@ inline void CapsuleTmp<T>::Draw(SDL_Renderer* renderer)
 	//	Uint8 	b,
 	//	Uint8 	a
 	//)
+	const Sint16* vx = { 0,100,100,0 };
+	const Sint16* vy = { 0,0,100,100 };
+
+
+	aapolygonRGBA(renderer,
+		vx,
+		vy,
+		4,
+		fillColor_.r,
+		fillColor_.g,
+		fillColor_.b,
+		fillColor_.a);
 	if (fillVisible_) { fillDraw(renderer); }
 
 	if (outlineVisible_) { outlineDraw(renderer); }
@@ -318,9 +330,9 @@ inline void CapsuleTmp<T>::outlineDraw(SDL_Renderer* renderer)
 template<class T>
 inline void CapsuleTmp<T>::Init()
 {
-	drawFunc[0] = &this->outSideDraw;
-	drawFunc[1] = &this->centerDraw;
-	drawFunc[2] = &this->InnerDraw;
+	drawFunc[0] = &CapsuleTmp<T>::outSideDraw;
+	drawFunc[1] = &CapsuleTmp<T>::centerDraw;
+	drawFunc[2] = &CapsuleTmp<T>::InnerDraw;
 }
 
 template<class T>

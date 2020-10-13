@@ -1,12 +1,14 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include "../Constant.h"
+
+#include "../System/SceneManager.h"
 #include "TitleScene.h"
 #include "GameScene.h"
-#include "../System/SceneManager.h"
-#include "../Constant.h"
 
 TitleScene::TitleScene(SceneManager& sceneMng):BaseScene(sceneMng)
 {
+	capsule = CapsuleTmp<float>::CapsuleTmp();
 }
 
 void TitleScene::ProcessInput()
@@ -37,6 +39,8 @@ void TitleScene::Render(SDL_Renderer* renderer)
 {
 	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
 	SDL_RenderClear(renderer);
+
+
 
 	SDL_RenderPresent(renderer);
 }

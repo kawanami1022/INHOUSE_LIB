@@ -2,7 +2,6 @@
 #include <cmath>
 constexpr auto PI = 3.14159265358979323846264338327950288;
 
-#define STCT				static_cast<T>
 #define DEGREE_TO_RADIOUS(angle) angle * PI / 180
 #define RADIOUS_TO_DEGREE(radious)	radious*180/PI
 
