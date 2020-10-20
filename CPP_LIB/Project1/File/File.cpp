@@ -1,6 +1,6 @@
-#include "FileControl.h"
+#include "File.h"
 
-int fileControl::GetLineString(int lineSize, std::string* lineString, std::string FileName)
+int File::GetLineString(int lineSize, std::string* lineString, std::string FileName)
 {
 	auto filePos = 0;
 	//int lineCounter = 0;
@@ -23,7 +23,7 @@ int fileControl::GetLineString(int lineSize, std::string* lineString, std::strin
 	return 0;
 }
 
-bool fileControl::GenerateMapData(int x, int y, std::string FileName)
+bool File::GenerateMapData(int x, int y, std::string FileName)
 {
 	std::fstream fs(FileName);
 	if (!fs)

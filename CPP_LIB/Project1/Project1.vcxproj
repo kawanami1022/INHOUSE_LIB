@@ -139,14 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FileControl\FileControl.cpp" />
+    <ClCompile Include="File\File.cpp" />
     <ClCompile Include="func.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Vector2D\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileControl\detail\FileControl.h" />
-    <ClInclude Include="FileControl\FileControl.h" />
+    <ClInclude Include="File\detail\File.h" />
+    <ClInclude Include="File\File.h" />
     <ClInclude Include="func.h" />
     <ClInclude Include="Functional.h" />
     <ClInclude Include="Vector2D\Vector2.h" />

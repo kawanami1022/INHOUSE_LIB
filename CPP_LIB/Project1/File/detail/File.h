@@ -1,12 +1,12 @@
 #pragma once
-#include "../FileControl.h"
+#include "../File.h"
 
 //目的	:x軸y軸それぞれのチップ数を求める
 //入力	:T *x
 //		:T *y
 //		:FileName
 template<typename T>
-int fileControl::GetMapSizeForTxt(T* x, T* y, std::string FileName, char countChar)
+int File::GetMapSizeForTxt(T* x, T* y, std::string FileName, char countChar)
 {
 	char checkChar;
 	int lineSize = 0;	//	行ごとのファイルの大きさ
@@ -57,7 +57,7 @@ int fileControl::GetMapSizeForTxt(T* x, T* y, std::string FileName, char countCh
 }
 
 template<typename T>
-int fileControl::LoadMapDataForTxt(T size_x, T size_y, T* mapChipData, std::string FileName, char checkChar)
+int File::LoadMapDataForTxt(T size_x, T size_y, T* mapChipData, std::string FileName, char checkChar)
 {
 	int lineSize = 0;	// 行の大きさ
 
