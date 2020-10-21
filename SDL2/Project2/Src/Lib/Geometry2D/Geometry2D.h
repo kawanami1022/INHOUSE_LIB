@@ -136,10 +136,10 @@ public:
 	SDL_Surface* surface_;		// 
 	// constractor
 	CapsuleTmp();
-	//CapsuleTmp(Vector2Tmp<T> pos, T height, T radious);
-	//CapsuleTmp(Vector2Tmp<T> pos, T height, T radious,RGBA fillColor);
-	//CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor,
-	//	bool fillVisible,OUTLINE_ID outlineID,RGBA outlineColor,unsigned int outlineSize,bool outlineVisible);
+	CapsuleTmp(Vector2Tmp<T> pos, T height, T radious);
+	CapsuleTmp(Vector2Tmp<T> pos, T height, T radious,RGBA fillColor);
+	CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor,
+		bool fillVisible,OUTLINE_ID outlineID,RGBA outlineColor,unsigned int outlineSize,bool outlineVisible);
 
 	// functions
 	void Draw(SDL_Renderer*);				// draw circle	outlineVisible_:true outline draw	fillVisible_:true draw fillcircle

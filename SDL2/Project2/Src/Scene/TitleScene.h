@@ -2,7 +2,9 @@
 #include <SDL.h>
 #include "BaseScene.h"
 #include "../Lib/Geometry2D/Geometry2D.h"
-
+//template<class T>
+//class Vector2Tmp;
+//
 //template<class T>
 //class CapsuleTmp;
 
