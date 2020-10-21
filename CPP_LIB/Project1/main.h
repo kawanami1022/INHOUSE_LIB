@@ -1,13 +1,22 @@
 #pragma once
+#include <unordered_map>
 #include <memory>
+#include <string>
 
-struct TMX_FileSize
+struct Tiled_Map
 {
-	
+	unsigned int width_;
+	unsigned int height_;
+	std::unique_ptr<int> titleID_;
+	std::string dataEncoding_;
+	std::string layerName_;
 };
 
-
-class TMX
+struct TMX_File
 {
-	
+public:
+	std::string encoding;
+	std::vector<std::string> layerName_;
+	std::unordered_map<std::string, Tiled_Map> tiledMap_;
+	unsigned int layer_;
 };
