@@ -141,11 +141,14 @@
   <ItemGroup>
     <ClCompile Include="File\File.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="strmanip\strmanip.cpp" />
+    <ClCompile Include="File\TMX_File.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="File\detail\File.h" />
     <ClInclude Include="File\File.h" />
-    <ClInclude Include="main.h" />
+    <ClInclude Include="strmanip\strmanip.h" />
+    <ClInclude Include="File\TMX_File.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
