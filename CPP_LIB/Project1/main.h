@@ -16,7 +16,12 @@ struct TMX_File
 {
 public:
 	std::string encoding;
+	std::string orthogonal;
+	
 	std::vector<std::string> layerName_;
 	std::unordered_map<std::string, Tiled_Map> tiledMap_;
 	unsigned int layer_;
+
+	int tileSizeWidth_;
+	int tileSizeHeight_;
 };
