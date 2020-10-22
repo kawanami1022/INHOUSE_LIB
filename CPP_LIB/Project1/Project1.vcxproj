@@ -139,17 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FileControl\FileControl.cpp" />
-    <ClCompile Include="func.cpp" />
+    <ClCompile Include="File\File.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Vector2D\Vector2.cpp" />
+    <ClCompile Include="strmanip\strmanip.cpp" />
+    <ClCompile Include="File\TMX_File.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileControl\detail\FileControl.h" />
-    <ClInclude Include="FileControl\FileControl.h" />
-    <ClInclude Include="func.h" />
-    <ClInclude Include="Functional.h" />
-    <ClInclude Include="Vector2D\Vector2.h" />
+    <ClInclude Include="File\detail\File.h" />
+    <ClInclude Include="File\File.h" />
+    <ClInclude Include="strmanip\strmanip.h" />
+    <ClInclude Include="File\TMX_File.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

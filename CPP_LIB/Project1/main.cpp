@@ -1,8 +1,7 @@
-#include <iostream>
-#include <algorithm>
+#include "File/TMX_File.h"
 
 int main()
 {
-	std::max(3, 1);
+	File::TMX_File tmxFile;
+	tmxFile.load_TMX("map.tmx");
 }
-
