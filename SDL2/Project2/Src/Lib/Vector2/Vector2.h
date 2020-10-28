@@ -4,7 +4,7 @@
 //-------------------------------------------------d
 #pragma once
 #include <array>
-#include <math.h>
+#include <cmath>
 
 #define PI 3.14159265
 
@@ -15,19 +15,16 @@ public:
 	Vector2Tmp();
 	Vector2Tmp(T x,T y);
 
-	T calcAngle(T x, T y);			// 角度を求める
-	T calcSin(T angle);				// y軸のベクトルを求める
-	T calcCos(T angle);				// x軸のベクトルを求める
-	T calcTwoPtDisComp(T*, T*);		// 2つのポイントの間の距離の合成
-	T calcVecX(T dis, T angle);		// 角度からx軸y軸のそれぞれの速度を計算する
-	T calcVecY(T dis, T angle);		// 角度からx軸y軸のそれぞれの速度を計算する
+	double calcAngle(T x, T y);			// 角度を求める
+	double calcSin(T angle);				// y軸のベクトルを求める
+	double calcCos(T angle);				// x軸のベクトルを求める
+
 	T x, y;								// 座標格納用変数
 	Vector2Tmp& operator=(const Vector2Tmp& vec2);
 	Vector2Tmp& operator+=(Vector2Tmp& vec2);
 	Vector2Tmp& operator-=(Vector2Tmp& vec2);
 	Vector2Tmp& operator*=(Vector2Tmp& vec2);
 	Vector2Tmp& operator/=(Vector2Tmp& vec2);
-	Vector2Tmp& operator%=(Vector2Tmp& vec2);
 
 	bool operator==(Vector2Tmp& vec2);
 	bool operator!=(Vector2Tmp& vec2);
@@ -65,8 +62,8 @@ bool operator<(Vector2Tmp<T>& vec2, T k);
 template<class T>
 bool operator<=(Vector2Tmp<T>& vec2, T k);
 
-
 #include "detail/Vector2.h"
+
 using Vector2 = Vector2Tmp<int>;
 using Vector2l = Vector2Tmp<long>;
 using Vector2f = Vector2Tmp<float>;

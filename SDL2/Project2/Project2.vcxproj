@@ -173,6 +173,7 @@
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_gfxPrimitives.c" />
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_imageFilter.c" />
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_rotozoom.c" />
+    <ClCompile Include="Src\Lib\Vector2\Vector2.cpp" />
     <ClCompile Include="Src\main.cpp" />
     <ClCompile Include="Src\Scene\BaseScene.cpp" />
     <ClCompile Include="Src\Scene\GameScene.cpp" />
