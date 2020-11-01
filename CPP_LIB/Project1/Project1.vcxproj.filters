@@ -18,30 +18,53 @@
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Vector2D\Vector2.cpp">
+<<<<<<< develop
+    <ClCompile Include="File\File.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="strmanip\strmanip.cpp">
+=======
     <ClCompile Include="FileControl\FileControl.cpp">
+>>>>>>> added matrix03
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="func.cpp">
+    <ClCompile Include="File\TMX_File.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Vector2D\Vector2.h">
+<<<<<<< develop
+    <ClInclude Include="File\File.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="File\detail\File.h">
+=======
     <ClInclude Include="FileControl\FileControl.h">
+>>>>>>> added matrix03
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="FileControl\detail\FileControl.h">
+    <ClInclude Include="strmanip\strmanip.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Functional.h">
+    <ClInclude Include="File\TMX_File.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="func.h">
+    <ClInclude Include="Math\detail\math.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\math.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Constraint\cast.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Constraint\constraint.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2\detail\Vector2.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2\Vector2.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

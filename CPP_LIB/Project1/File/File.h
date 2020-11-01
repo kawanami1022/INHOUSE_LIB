@@ -4,7 +4,7 @@
 #include <fstream>
 #include <list>
 
-namespace fileControl
+namespace File
 {
 	//目的	:位置行ごとに文字列を読み込む
 	//入力	:int lineSize				行数	
@@ -35,4 +35,4 @@ namespace fileControl
 
 }
 
-#include "detail/FileControl.h"
+#include "detail/File.h"

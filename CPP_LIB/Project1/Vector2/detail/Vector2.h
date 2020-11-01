@@ -1,5 +1,8 @@
 #pragma once
 #include "../Vector2.h"
+#include "../../Math/math.h"
+
+
 template<class T> Vector2Tmp<T>::Vector2Tmp()
 {
 	x = 0;

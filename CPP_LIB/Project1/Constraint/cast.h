@@ -5,4 +5,3 @@
 #define STCD static_cast<double>
 #define STCS static_cast<short>
 #define STCL static_cast<long>
-#define STCT	static_cast<T>
