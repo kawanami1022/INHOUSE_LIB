@@ -6,7 +6,6 @@
 #include <array>
 #include <cmath>
 
-#define PI 3.14159265
 
 template<class T>
 class Vector2Tmp

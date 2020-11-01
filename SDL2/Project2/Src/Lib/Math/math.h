@@ -1,6 +1,6 @@
 #pragma once
 #include <cmath>
-constexpr auto PI = 3.14159265358979323846264338327950288;
+#define PI  3.14159265358979323846264338327950288
 
 #define DEGREE_TO_RADIOUS(angle) angle * PI / 180
 #define RADIOUS_TO_DEGREE(radious)	radious*180/PI
@@ -52,5 +52,4 @@ Vector2Tmp<T> RotateCenterPositon(Vector2Tmp<T> Position, Vector2Tmp<T> centerPo
 
 template<class T>
 Vector2Tmp<T> ScaleCenterPosition(Vector2Tmp<T> Position, Vector2Tmp<T> centerPos, Vector2Tmp<T> magnification);
-#include "detail/math.h"
 

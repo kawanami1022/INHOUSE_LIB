@@ -169,6 +169,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Src\Application.cpp" />
+    <ClCompile Include="Src\Lib\Math\math.cpp" />
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_framerate.c" />
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_gfxPrimitives.c" />
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_imageFilter.c" />
@@ -194,7 +195,6 @@
     <ClInclude Include="Src\Lib\Constraint\constraint.h" />
     <ClInclude Include="Src\Lib\Geometry2D\detail\Geometry2D.h" />
     <ClInclude Include="Src\Lib\Geometry2D\Geometry2D.h" />
-    <ClInclude Include="Src\Lib\Math\detail\math.h" />
     <ClInclude Include="Src\Lib\Math\math.h" />
     <ClInclude Include="Src\Lib\SDL_gfx\SDL2_framerate.h" />
     <ClInclude Include="Src\Lib\SDL_gfx\SDL2_gfxPrimitives.h" />

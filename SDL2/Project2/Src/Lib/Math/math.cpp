@@ -1,9 +1,8 @@
-#pragma once
 #include <valarray>
 #include <cstring>
-#include "../../Constraint/cast.h"
-#include "../../Vector2/Vector2.h"
-#include "../math.h"
+#include "../Constraint/cast.h"
+#include "../Vector2/Vector2.h"
+#include "math.h"
 
 
 template<class T>
@@ -22,7 +21,7 @@ Matrix3x3Tmp<T> operator* (Matrix3x3Tmp<T> mat1, Matrix3x3Tmp<T> mat2)
 }
 
 template<class T>
-inline Vector2Tmp<T> operator*( Vector2Tmp<T> vec, Matrix3x3Tmp<T> mat1)
+inline Vector2Tmp<T> operator*(Vector2Tmp<T> vec, Matrix3x3Tmp<T> mat1)
 {
 	return { vec.x * mat1.index[0][0] + vec.y * mat1.index[0][1] + mat1.index[0][2],
 		vec.x * mat1.index[1][0] + vec.y * mat1.index[1][1] + mat1.index[1][2] };
@@ -46,10 +45,10 @@ inline Matrix3x3Tmp<T> IdentityMat()
 template<class T>
 inline Matrix3x3Tmp<T> TranslateMatrix(T x, T y)
 {
-	Matrix3x3Tmp<T> tmpMat = 
-			{ STCT(1.0),STCT(0.0),x ,
-				STCT(0.0),STCT(1.0),y ,
-				STCT(0.0),STCT(0.0),STCT(1.0) };
+	Matrix3x3Tmp<T> tmpMat =
+	{ STCT(1.0),STCT(0.0),x ,
+		STCT(0.0),STCT(1.0),y ,
+		STCT(0.0),STCT(0.0),STCT(1.0) };
 
 	return tmpMat;
 }
@@ -80,9 +79,9 @@ inline Vector2Tmp<T> TranslatePosition(Vector2Tmp<T> position, Vector2Tmp<T> off
 }
 
 template<class T>
-inline Vector2Tmp<T> RotateCenterPositon(Vector2Tmp<T> Position,Vector2Tmp<T> centerPos, T angle)
+inline Vector2Tmp<T> RotateCenterPositon(Vector2Tmp<T> Position, Vector2Tmp<T> centerPos, T angle)
 {
-	return	Position * TranslateMatrix(-centerPos.x, -centerPos.y)*RotateMatrix(angle)* TranslateMatrix(centerPos.x, centerPos.y);
+	return	Position * TranslateMatrix(-centerPos.x, -centerPos.y) * RotateMatrix(angle) * TranslateMatrix(centerPos.x, centerPos.y);
 }
 
 template<class T>
@@ -91,3 +90,21 @@ inline Vector2Tmp<T> ScaleCenterPosition(Vector2Tmp<T> Position, Vector2Tmp<T> c
 	return Position * TranslateMatrix(-centerPos.x, -centerPos.y) * ScaleMatrix(magnification.x, magnification.y) * TranslateMatrix(centerPos.x, centerPos.y);
 }
 
+template struct Matrix3x3Tmp<char>;
+template struct Matrix3x3Tmp<wchar_t>;
+template struct Matrix3x3Tmp<char16_t>;
+template struct Matrix3x3Tmp<char32_t>;
+template struct Matrix3x3Tmp<unsigned char>;
+template struct Matrix3x3Tmp<short>;
+template struct Matrix3x3Tmp<unsigned short>;
+template struct Matrix3x3Tmp<int>;
+template struct Matrix3x3Tmp<__int8>;
+template struct Matrix3x3Tmp<__int16>;
+template struct Matrix3x3Tmp<__int32>;
+template struct Matrix3x3Tmp<__int64>;
+template struct Matrix3x3Tmp<unsigned int>;
+template struct Matrix3x3Tmp<long>;
+template struct Matrix3x3Tmp<long long>;
+template struct Matrix3x3Tmp<float>;
+template struct Matrix3x3Tmp<double>;
+template struct Matrix3x3Tmp<long double>;
