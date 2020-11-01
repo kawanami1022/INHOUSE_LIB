@@ -62,8 +62,6 @@ bool operator<(Vector2Tmp<T>& vec2, T k);
 template<class T>
 bool operator<=(Vector2Tmp<T>& vec2, T k);
 
-#include "detail/Vector2.h"
-
 using Vector2 = Vector2Tmp<int>;
 using Vector2l = Vector2Tmp<long>;
 using Vector2f = Vector2Tmp<float>;
