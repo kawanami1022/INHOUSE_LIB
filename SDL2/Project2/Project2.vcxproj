@@ -169,6 +169,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Src\Application.cpp" />
+    <ClCompile Include="Src\Lib\Collision2D\Collision2D.cpp" />
     <ClCompile Include="Src\Lib\Math\math.cpp" />
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_framerate.c" />
     <ClCompile Include="Src\Lib\SDL_gfx\SDL2_gfxPrimitives.c" />
@@ -186,12 +187,12 @@
     <!-- <ClInclude Include="Src\Collision2D\Collision2D.h" /> -->
     <ClInclude Include="Src\Application.h" />
     <ClInclude Include="Src\Constant.h" />
+    <ClInclude Include="Src\Lib\Collision2D\Collision2D.h" />
     <ClInclude Include="Src\Lib\Collision2D\detail\Collision2D.h" />
     <ClInclude Include="Src\Lib\Constraint\cast.h" />
     <ClInclude Include="Src\Lib\Color\Color.h" />
     <ClInclude Include="Src\Geometry2D\detail\Geometry2D.h" />
     <ClInclude Include="Src\Geometry2D\Geometry2D.h" />
-    <ClInclude Include="Src\Lib\Collision2D\Collision2D.h" />
     <ClInclude Include="Src\Lib\Constraint\constraint.h" />
     <ClInclude Include="Src\Lib\Geometry2D\detail\Geometry2D.h" />
     <ClInclude Include="Src\Lib\Geometry2D\Geometry2D.h" />

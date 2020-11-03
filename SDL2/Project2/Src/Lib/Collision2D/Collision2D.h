@@ -12,6 +12,5 @@ bool IsHitCircle(CircleTmp<T>&, CircleTmp<T>&);	// check hit circle to each othe
 
 }
 
-#include "detail/Collision2D.h"
 
 

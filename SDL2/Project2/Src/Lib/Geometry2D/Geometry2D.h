@@ -11,10 +11,10 @@ enum class OUTLINE_ID
 	Max,
 };
 
-//OUTLINE_ID operator++(OUTLINE_ID& outlineID) { return outlineID=(OUTLINE_ID)(std::underlying_type<OUTLINE_ID>::type(outlineID) + 1); }
-//OUTLINE_ID operator*(OUTLINE_ID outlineID) { return outlineID; }
-//OUTLINE_ID begin(OUTLINE_ID outlineID) { return OUTLINE_ID::INNER; }
-//OUTLINE_ID end(OUTLINE_ID outlineID) { return OUTLINE_ID::Max;}
+OUTLINE_ID operator++(OUTLINE_ID& outlineID) { return outlineID=(OUTLINE_ID)(std::underlying_type<OUTLINE_ID>::type(outlineID) + 1); }
+OUTLINE_ID operator*(OUTLINE_ID outlineID) { return outlineID; }
+OUTLINE_ID begin(OUTLINE_ID outlineID) { return OUTLINE_ID::INNER; }
+OUTLINE_ID end(OUTLINE_ID outlineID) { return OUTLINE_ID::Max;}
 
 struct RGB;
 struct RGBA;
