@@ -1,9 +1,7 @@
 #pragma once
-
 #include <cmath>
 #include <algorithm>
-#include "../Geometry2D/Geometry2D.h"
-#include "Collision2D.h"
+#include "../Collision2D.h"
 
 template<typename T>
 bool Collision2D::IsHitAABB(RectTmp<T>& rect1, RectTmp<T>& rect2)

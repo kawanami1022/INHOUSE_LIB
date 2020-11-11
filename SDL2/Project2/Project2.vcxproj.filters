@@ -51,9 +51,6 @@
     <ClCompile Include="Src\Lib\Math\math.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Lib\Collision2D\Collision2D.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Vector2\detail\Vector2.h">
@@ -125,10 +122,13 @@
     <ClInclude Include="Src\Lib\Math\math.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Lib\Collision2D\Collision2D.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
     <ClInclude Include="Src\Lib\Collision2D\detail\Collision2D.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Lib\Collision2D\Collision2D.h">
+    <ClInclude Include="Src\Collision2D\Collision2D.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,6 +8,7 @@
 #include "../../Constraint/cast.h"
 #include "../../Color/Color.h"
 
+
 template<class T>
 RectTmp<T>::RectTmp()
 {
@@ -262,7 +263,7 @@ inline CapsuleTmp<T>::CapsuleTmp()
 }
 
 template<class T>
-inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious)
+inline CapsuleTmp<T>::CapsuleTmp(Vector2T pos, T height, T radious)
 	:pos_(Vector2(0, 0)), height_(0), radious_(0), fillColor_(RGBA{ 0xff,0xff,0xff,0xff }), fillVisible_(false),
 	outlineID_(OUTLINE_ID::CENTER), outlineColor_(RGBA{ 0xff,0xff,0xff,0xff }), outlineSize_(0), outlineVisible_(false)
 {
@@ -270,7 +271,7 @@ inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious)
 }
 
 template<class T>
-inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor)
+inline CapsuleTmp<T>::CapsuleTmp(Vector2T pos, T height, T radious, RGBA fillColor)
 	:pos_(Vector2(0, 0)), height_(0), radious_(0), fillColor_(RGBA{ 0xff,0xff,0xff,0xff }), fillVisible_(false),
 	outlineID_(OUTLINE_ID::CENTER), outlineColor_(RGBA{ 0xff,0xff,0xff,0xff }), outlineSize_(0), outlineVisible_(false)
 {
@@ -278,7 +279,8 @@ inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fi
 }
 
 template<class T>
-inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fillColor, bool fillVisible,
+inline CapsuleTmp<T>::CapsuleTmp(Vector2T pos, T height, T radious, RGBA fillColor,
+ bool fillVisible,
 	OUTLINE_ID outlineID, RGBA outlineColor, unsigned int outlineSize, bool outlineVisible)
 	: pos_(pos), height_(height), radious_(radious), fillColor_(fillColor), fillVisible_(fillVisible),
 	outlineID_(outlineID), outlineColor_(outlineColor), outlineSize_(outlineSize), outlineVisible_(outlineVisible)
@@ -289,16 +291,14 @@ inline CapsuleTmp<T>::CapsuleTmp(Vector2Tmp<T> pos, T height, T radious, RGBA fi
 template<class T>
 inline void CapsuleTmp<T>::Draw(SDL_Renderer* renderer)
 {
+	if (fillVisible_) { fillDraw(renderer); }
 
-	//aapolygonRGBA(SDL_Surface * dst,
-	//	const Sint16 * vx,
-	//	const Sint16 * vy,
-	//	int 	n,
-	//	Uint8 	r,
-	//	Uint8 	g,
-	//	Uint8 	b,
-	//	Uint8 	a
-	//)
+	if (outlineVisible_) { outlineDraw(renderer); }
+}
+
+template<class T>
+inline void CapsuleTmp<T>::fillDraw(SDL_Renderer* renderer)
+{
 	const Sint16 vx[] = { 0,100,100,0 };
 	const Sint16 vy[] = { 0,0,100,100 };
 
@@ -311,15 +311,6 @@ inline void CapsuleTmp<T>::Draw(SDL_Renderer* renderer)
 		fillColor_.g,
 		fillColor_.b,
 		fillColor_.a);
-	if (fillVisible_) { fillDraw(renderer); }
-
-	if (outlineVisible_) { outlineDraw(renderer); }
-}
-
-template<class T>
-inline void CapsuleTmp<T>::fillDraw(SDL_Renderer* renderer)
-{
-
 }
 
 template<class T>
@@ -330,9 +321,19 @@ inline void CapsuleTmp<T>::outlineDraw(SDL_Renderer* renderer)
 template<class T>
 inline void CapsuleTmp<T>::Init()
 {
+	posTl_ = Vector2T(pos_.x - height_ / 2, pos_.y - radious_);
+	posTr_ = Vector2T(pos_.x + height_ / 2, pos_.y - radious_);
+	posDr_ = Vector2T(pos_.x + height_ / 2, pos_.y + radious_);
+	posDl_ = Vector2T(pos_.x - height_ / 2, pos_.y + radious_);
+
+	posL_ = Vector2T(pos_.x - height_ / 2, pos_.y);
+	posR_= Vector2T(pos_.x + height_ / 2, pos_.y);
+
 	drawFunc[0] = &CapsuleTmp<T>::outSideDraw;
 	drawFunc[1] = &CapsuleTmp<T>::centerDraw;
 	drawFunc[2] = &CapsuleTmp<T>::InnerDraw;
+
+
 }
 
 template<class T>
